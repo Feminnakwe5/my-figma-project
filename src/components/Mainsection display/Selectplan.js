@@ -7,9 +7,10 @@ class SelectPlan extends React.Component {
       <div>
         <h1>Select your plan</h1>
         <h2>you have the option of monthly or yearly</h2>
-        <PlanCards />
+        <PlanCards isMonthly={this.props.isMonthly} />
         <div>
-          monthly <button> toggle </button> yearly
+          monthly <button onClick={this.props.togglePlan}> toggle </button>
+          yearly
         </div>
       </div>
     );

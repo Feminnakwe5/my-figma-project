@@ -1,8 +1,8 @@
 import React from 'react';
 
 class AddOnCards extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.addCards = [
       {
         title: 'Online service',
@@ -33,7 +33,11 @@ class AddOnCards extends React.Component {
           <div id='addCard'>
             <h3> {addCard.title}</h3>
             <h4> {addCard.subtitle}</h4>
-            <p> +${addCard.monthPrice}/mo</p>
+            <p>
+              {this.props.isMonthly
+                ? '+$' + addCard.monthPrice + '/mo'
+                : '+$' + addCard.yearPrice + '/yr'}
+            </p>
           </div>
         </label>
       );

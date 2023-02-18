@@ -72,6 +72,7 @@ class App extends React.Component {
               togglePlan={this.togglePlan}
               selectedAddOns={this.state.addOn}
               selectedPlan={this.state.plan}
+              isMonthly={this.state.isMonthly}
             />
           </div>
         </div>

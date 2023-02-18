@@ -6,20 +6,24 @@ import FinishUp from './MainSection display/FinishUp';
 
 class MainDisplay extends React.Component {
   render() {
-    const section =
-      this.props.currentCount === 1 ? (
-        <Form />
-      ) : this.props.currentCount === 2 ? (
-        <SelectPlan />
-      ) : this.props.currentCount === 3 ? (
-        <AddOn />
-      ) : this.props.currentCount === 4 ? (
-        <FinishUp />
-      ) : (
-        <Form />
-      );
-
-    return <div>{section}</div>;
+    return (
+      <div>
+        {this.props.currentCount === 1 ? (
+          <Form />
+        ) : this.props.currentCount === 2 ? (
+          <SelectPlan
+            togglePlan={this.props.togglePlan}
+            isMonthly={this.props.isMonthly}
+          />
+        ) : this.props.currentCount === 3 ? (
+          <AddOn isMonthly={this.props.isMonthly} />
+        ) : this.props.currentCount === 4 ? (
+          <FinishUp man={this.props.heaven} />
+        ) : (
+          <Form />
+        )}
+      </div>
+    );
   }
 }
 

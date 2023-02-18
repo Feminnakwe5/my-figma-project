@@ -1,8 +1,8 @@
 import React from 'react';
 
 class PlanCards extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.cards = [
       {
         image: '',
@@ -37,8 +37,13 @@ class PlanCards extends React.Component {
         <div className='card'>
           <img src={card.image} alt={card.alt} />
           <h3>{card.title}</h3>
-          <p>${card.monthPrice}/mo</p>
-          <p>{card.yearDiscount}</p>
+          <p>
+            $
+            {this.props.isMonthly
+              ? card.monthPrice + '/mon'
+              : card.yearPrice + '/yr'}
+          </p>
+          {!this.props.isMonthly && <p>{card.yearDiscount}</p>}
         </div>
       );
     });
