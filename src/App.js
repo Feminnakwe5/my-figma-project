@@ -53,6 +53,7 @@ class App extends React.Component {
         <div>
           {/* <Main /> */}
           <Nav addCount={this.addCount} stateCount={this.state.count} />
+          {/* <button onClick={this.test}> click me </button> */}
         </div>
       </>
     );
