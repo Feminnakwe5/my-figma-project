@@ -50,10 +50,18 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div>
-          {/* <Main /> */}
-          <Nav addCount={this.addCount} stateCount={this.state.count} />
-          {/* <button onClick={this.test}> click me </button> */}
+        <div className='main'>
+          <div className='Nav'>
+            <Nav addCount={this.addCount} stateCount={this.state.count} />
+            {/* <button onClick={this.test}> click me </button> */}
+          </div>
+          <div className='main-section'>
+            <Main
+              addCount={this.addCount}
+              subtractCount={this.subtractCount}
+              stateCount={this.state.count}
+            />
+          </div>
         </div>
       </>
     );
