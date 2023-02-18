@@ -28,8 +28,8 @@ class Nav extends React.Component {
       return (
         <div>
           <div>{option.id}</div>
-          <h3> step {option.id}</h3>
-          <h2> {option.text} </h2>
+          <p> step{option.id}</p>
+          <h5> {option.text} </h5>
         </div>
       );
     });

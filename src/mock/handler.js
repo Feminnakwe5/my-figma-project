@@ -1,3 +1,5 @@
+import { rest } from 'msw';
+
 const verifyEmail = (req, res, context) => {
   return res(context.status(200), context.delay(1000));
 };
