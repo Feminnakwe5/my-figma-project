@@ -14,6 +14,7 @@ class MainDisplay extends React.Component {
       <>
         <Form />
         <SelectPlan />
+        <AddOn />
       </>
     );
   }

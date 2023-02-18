@@ -1,40 +1,15 @@
 import React from 'react';
+import FormInputs from './FormInputs';
 
 class Form extends React.Component {
-  constructor() {
-    super();
-    this.inputs = [
-      {
-        name: 'Name',
-        type: 'text',
-        placeholder: 'e.g. Stephen King',
-      },
-      {
-        name: 'Email Address',
-        type: 'email',
-        placeholder: 'e.g. stephenking@lorem.com',
-      },
-      {
-        name: 'Phone Number',
-        type: 'tel',
-        placeholder: 'e.g. +1 234 567 890',
-      },
-    ];
-  }
-
   render() {
-    return this.inputs.map((input) => {
-      return (
-        <div>
-          <label for={input.name}>{input.name}</label>
-          <input
-            type={input.type}
-            placeholder={input.placeholder}
-            id={input.name}
-          />
-        </div>
-      );
-    });
+    return (
+      <div>
+        <h1> Personal Info</h1>
+        <p> Please provide your name, email address ,and phone number</p>
+        <FormInputs />
+      </div>
+    );
   }
 }
 
