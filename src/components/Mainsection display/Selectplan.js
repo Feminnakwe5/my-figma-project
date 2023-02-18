@@ -1,11 +1,12 @@
 import React from 'react';
+import arcade from '../images/arcade.png';
 
 class SelectPlan extends React.Component {
   constructor() {
     super();
     this.cards = [
       {
-        image: '../images/arcade.png',
+        image: { arcade },
         alt: 'arcade logo',
         title: 'Arcade',
         monthPrice: 9,
@@ -21,7 +22,7 @@ class SelectPlan extends React.Component {
         yearDiscount: '2 months free',
       },
       {
-        image: '/images/pro.png',
+        image: '../images/pro.png',
         alt: 'pro logo',
         title: 'pro',
         monthPrice: 15,
