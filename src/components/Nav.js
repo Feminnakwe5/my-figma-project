@@ -1,8 +1,8 @@
 import React from 'react';
 
 class Nav extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.options = [
       {
         id: 1,
@@ -27,7 +27,9 @@ class Nav extends React.Component {
     return this.options.map((option) => {
       return (
         <div>
-          <div>{option.id}</div>
+          <button onClick={() => this.props.setCount(option.id)}>
+            {option.id}
+          </button>
           <p> step{option.id}</p>
           <h5> {option.text} </h5>
         </div>

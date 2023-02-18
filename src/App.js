@@ -15,6 +15,7 @@ class App extends React.Component {
     this.addCount = this.addCount.bind(this);
     this.subtractCount = this.subtractCount.bind(this);
     this.togglePlan = this.togglePlan.bind(this);
+    this.setCount = this.setCount.bind(this);
   }
 
   test() {
@@ -36,13 +37,21 @@ class App extends React.Component {
       this.setState((prevState) => ({
         count: prevState.count - 1,
       }));
+    console.log(this.state.count);
   }
 
   togglePlan() {
     this.setState((prevState) => ({
       isMonthly: !prevState.isMonthly,
     }));
-    console.log(this.state.isMonthly);
+    console.log(this.state.count);
+  }
+
+  setCount(id) {
+    this.setState(() => ({
+      count: id,
+    }));
+    console.log(this.state.count);
   }
 
   // add function for changePlan
@@ -52,7 +61,7 @@ class App extends React.Component {
       <>
         <div className='main'>
           <div className='Nav'>
-            <Nav addCount={this.addCount} stateCount={this.state.count} />
+            <Nav stateCount={this.state.count} setCount={this.setCount} />
             {/* <button onClick={this.test}> click me </button> */}
           </div>
           <div className='main-section'>
@@ -60,6 +69,9 @@ class App extends React.Component {
               addCount={this.addCount}
               subtractCount={this.subtractCount}
               stateCount={this.state.count}
+              togglePlan={this.togglePlan}
+              selectedAddOns={this.state.addOn}
+              selectedPlan={this.state.plan}
             />
           </div>
         </div>

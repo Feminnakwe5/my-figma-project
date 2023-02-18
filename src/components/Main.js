@@ -2,14 +2,10 @@ import React from 'react';
 import MainDisplay from './MainDisplay';
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
-        <MainDisplay />
+        <MainDisplay currentCount={this.props.stateCount} />
         <div>
           {/* find how to conditionally render/display button with css */}
           <button onClick={this.props.subtractCount}> Go back </button>
