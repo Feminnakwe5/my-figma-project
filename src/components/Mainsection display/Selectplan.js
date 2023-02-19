@@ -1,5 +1,5 @@
 import React from 'react';
-import PlanCards from './PlanCards';
+import { PlanCards } from './PlanCards';
 
 class SelectPlan extends React.Component {
   render() {
@@ -7,7 +7,10 @@ class SelectPlan extends React.Component {
       <div>
         <h1>Select your plan</h1>
         <h2>you have the option of monthly or yearly</h2>
-        <PlanCards isMonthly={this.props.isMonthly} />
+        <PlanCards
+          isMonthly={this.props.isMonthly}
+          selectedPlan={this.props.selectedPlan}
+        />
         <div>
           monthly <button onClick={this.props.togglePlan}> toggle </button>
           yearly

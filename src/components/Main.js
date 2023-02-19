@@ -9,10 +9,13 @@ class Main extends React.Component {
           currentCount={this.props.stateCount}
           togglePlan={this.props.togglePlan}
           isMonthly={this.props.isMonthly}
+          selectedAddOns={this.props.selectedAddOns}
+          selectedPlan={this.props.selectedPlan}
         />
         <div>
-          {/* find how to conditionally render/display button with css */}
-          <button onClick={this.props.subtractCount}> Go back </button>
+          {this.props.stateCount > 1 && (
+            <button onClick={this.props.subtractCount}> Go back </button>
+          )}
           <button onClick={this.props.addCount}> Next step </button>
         </div>
       </div>

@@ -54,7 +54,11 @@ class App extends React.Component {
     console.log(this.state.count);
   }
 
-  // add function for changePlan
+  planSelect(id) {
+    this.cards.map((card) => {
+      return card.id === id ? [this.props.selectedPlan === card] : [];
+    });
+  }
 
   render() {
     return (

@@ -1,32 +1,29 @@
 import React from 'react';
 
-class AddOnCards extends React.Component {
-  constructor(props) {
-    super(props);
-    this.addCards = [
-      {
-        title: 'Online service',
-        subtitle: 'Access to multiplayer games',
-        monthPrice: 1,
-        yearPrice: 10,
-      },
-      {
-        title: 'Larger Storage',
-        subtitle: 'Extra 1TB of cloud save',
-        monthPrice: 2,
-        yearPrice: 20,
-      },
-      {
-        title: 'Customizable profile',
-        subtitle: 'Access to multiplayer games',
-        monthPrice: 2,
-        yearPrice: 20,
-      },
-    ];
-  }
+const addCardsData = [
+  {
+    title: 'Online service',
+    subtitle: 'Access to multiplayer games',
+    monthPrice: 1,
+    yearPrice: 10,
+  },
+  {
+    title: 'Larger Storage',
+    subtitle: 'Extra 1TB of cloud save',
+    monthPrice: 2,
+    yearPrice: 20,
+  },
+  {
+    title: 'Customizable profile',
+    subtitle: 'Access to multiplayer games',
+    monthPrice: 2,
+    yearPrice: 20,
+  },
+];
 
+class AddOnCards extends React.Component {
   render() {
-    return this.addCards.map((addCard) => {
+    return addCardsData.map((addCard) => {
       return (
         <label for={addCard.title}>
           <input id={addCard.title} type='checkbox' />
@@ -45,4 +42,4 @@ class AddOnCards extends React.Component {
   }
 }
 
-export default AddOnCards;
+export { AddOnCards, addCardsData };
