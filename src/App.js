@@ -21,6 +21,7 @@ class App extends React.Component {
     this.planSelect = this.planSelect.bind(this);
     this.addOnSelect = this.addOnSelect.bind(this);
     this.test = this.test.bind(this);
+    this.clearState = this.clearState.bind(this);
   }
 
   test() {
@@ -54,13 +55,15 @@ class App extends React.Component {
     this.setState(() => ({
       count: id,
     }));
-    console.log(this.state.count);
+  }
+
+  clearState(value) {
+    this.setState(() => ({ addOn: value }));
   }
 
   planSelect(id) {
     const selectedPlan = plansData.find((plan) => plan.id === id);
     this.setState(() => ({ plan: [selectedPlan] }));
-    console.log(this.state.addOn);
   }
 
   addOnSelect(id) {
@@ -68,11 +71,7 @@ class App extends React.Component {
       ? this.state.addOn.filter((addOns) => {
           return addOns.id !== id;
         })
-      : [
-          ...this.state.addOn,
-          addCardsData.find((addOns) => addOns.id === id),
-          // checked: true,
-        ];
+      : [...this.state.addOn, addCardsData.find((addOns) => addOns.id === id)];
     this.setState(() => ({ addOn: updatedAddOns }));
   }
 
@@ -95,6 +94,7 @@ class App extends React.Component {
               togglePlan={this.togglePlan}
               selectAddOns={this.addOnSelect}
               selectPlan={this.planSelect}
+              clearState={this.clearState}
             />
           </div>
         </div>

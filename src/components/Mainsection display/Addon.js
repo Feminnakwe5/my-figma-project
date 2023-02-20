@@ -2,6 +2,10 @@ import React from 'react';
 import { AddOnCards } from './AddOnCards';
 
 class AddOn extends React.Component {
+  componentDidMount() {
+    this.props.clearState([]);
+  }
+
   render() {
     return (
       <div>

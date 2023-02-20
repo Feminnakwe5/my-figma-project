@@ -28,7 +28,7 @@ class FormInputs extends React.Component {
   render() {
     return this.inputs.map((input) => {
       return (
-        <div>
+        <div key={input.id}>
           <label htmlFor={input.name}>{input.name}</label>
           <input
             type={input.type}

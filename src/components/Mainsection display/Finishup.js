@@ -1,12 +1,6 @@
 import React from 'react';
 
 class FinishUp extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  // planState={this.props.planState}
-  //           addOnState={this.props.addOnState}
-
   render() {
     const selectedPlan = this.props.planState.map((plan) => {
       return (

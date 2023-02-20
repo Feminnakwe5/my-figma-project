@@ -13,6 +13,7 @@ class Main extends React.Component {
           selectPlan={this.props.selectPlan}
           planState={this.props.planState}
           addOnState={this.props.addOnState}
+          clearState={this.props.clearState}
         />
         <div>
           {this.props.stateCount > 1 && (

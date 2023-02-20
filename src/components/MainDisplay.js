@@ -20,6 +20,7 @@ class MainDisplay extends React.Component {
           <AddOn
             isMonthly={this.props.isMonthly}
             selectAddOns={this.props.selectAddOns}
+            clearState={this.props.clearState}
           />
         ) : this.props.currentCount === 4 ? (
           <FinishUp
