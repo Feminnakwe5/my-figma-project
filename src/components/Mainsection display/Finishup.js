@@ -2,14 +2,22 @@ import React from 'react';
 
 class FinishUp extends React.Component {
   render() {
+    const monthly = this.props.isMonthly;
+
     const allSelected = [...this.props.planState, ...this.props.addOnState].map(
       (selected) => {
         return (
           <div key={selected.id}>
-            <h1>{selected.title}</h1>
+            <h1>
+              {selected.yearDiscount && monthly
+                ? selected.title + '(Monthly)'
+                : selected.yearDiscount
+                ? selected.title + '(Yearly)'
+                : selected.title}
+            </h1>
             <p>
               +$
-              {this.props.isMonthly
+              {monthly
                 ? selected.monthPrice + '/mon'
                 : selected.yearPrice + '/yr'}
             </p>
@@ -17,7 +25,6 @@ class FinishUp extends React.Component {
         );
       }
     );
-    const monthly = this.props.isMonthly;
 
     const total = [...this.props.planState, ...this.props.addOnState].reduce(
       (sum, obj) => (monthly ? sum + obj.monthPrice : sum + obj.yearPrice),
@@ -30,8 +37,10 @@ class FinishUp extends React.Component {
         <p>Double-check everything looks OK before confirming.</p>
         {allSelected}
         <div>
-          total per month
-          <p>{total}</p>
+          total (per {monthly ? 'month' : 'year'})
+          <p>
+            $ {total} {monthly ? '/mon' : '/Yr'}
+          </p>
         </div>
       </div>
     );
