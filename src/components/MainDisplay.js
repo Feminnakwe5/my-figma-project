@@ -26,6 +26,7 @@ class MainDisplay extends React.Component {
           <FinishUp
             planState={this.props.planState}
             addOnState={this.props.addOnState}
+            isMonthly={this.props.isMonthly}
           />
         ) : (
           <Form />
