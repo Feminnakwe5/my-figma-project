@@ -9,8 +9,10 @@ class Main extends React.Component {
           currentCount={this.props.stateCount}
           togglePlan={this.props.togglePlan}
           isMonthly={this.props.isMonthly}
-          selectedAddOns={this.props.selectedAddOns}
-          selectedPlan={this.props.selectedPlan}
+          selectAddOns={this.props.selectAddOns}
+          selectPlan={this.props.selectPlan}
+          planState={this.props.planState}
+          addOnState={this.props.addOnState}
         />
         <div>
           {this.props.stateCount > 1 && (

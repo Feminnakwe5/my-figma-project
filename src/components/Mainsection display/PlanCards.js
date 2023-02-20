@@ -32,18 +32,18 @@ const plansData = [
 
 class PlanCards extends React.Component {
   render() {
-    return plansData.map((card) => {
+    return plansData.map((plan) => {
       return (
-        <div className='card'>
-          <img src={card.image} alt={card.alt} />
-          <h3>{card.title}</h3>
+        <div className='card' onClick={() => this.props.selectPlan(plan.id)}>
+          <img src={plan.image} alt={plan.alt} />
+          <h3>{plan.title}</h3>
           <p>
             $
             {this.props.isMonthly
-              ? card.monthPrice + '/mon'
-              : card.yearPrice + '/yr'}
+              ? plan.monthPrice + '/mon'
+              : plan.yearPrice + '/yr'}
           </p>
-          {!this.props.isMonthly && <p>{card.yearDiscount}</p>}
+          {!this.props.isMonthly && <p>{plan.yearDiscount}</p>}
         </div>
       );
     });

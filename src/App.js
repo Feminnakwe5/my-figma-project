@@ -2,6 +2,8 @@ import './App.css';
 import React from 'react';
 import Main from './components/Main';
 import Nav from './components/Nav';
+import { plansData } from './components/MainSection display/PlanCards';
+import { addCardsData } from './components/MainSection display/AddOnCards';
 
 class App extends React.Component {
   constructor() {
@@ -16,6 +18,9 @@ class App extends React.Component {
     this.subtractCount = this.subtractCount.bind(this);
     this.togglePlan = this.togglePlan.bind(this);
     this.setCount = this.setCount.bind(this);
+    this.planSelect = this.planSelect.bind(this);
+    this.addOnSelect = this.addOnSelect.bind(this);
+    this.test = this.test.bind(this);
   }
 
   test() {
@@ -55,9 +60,22 @@ class App extends React.Component {
   }
 
   planSelect(id) {
-    this.cards.map((card) => {
-      return card.id === id ? [this.props.selectedPlan === card] : [];
-    });
+    const selectedPlan = plansData.find((plan) => plan.id === id);
+    this.setState(() => ({ plan: [selectedPlan] }));
+    console.log(this.state.addOn);
+  }
+
+  addOnSelect(id) {
+    const updatedAddOns = this.state.addOn.find((addOns) => addOns.id === id)
+      ? this.state.addOn.filter((addOns) => {
+          return addOns.id !== id;
+        })
+      : [
+          ...this.state.addOn,
+          addCardsData.find((addOns) => addOns.id === id),
+          // checked: true,
+        ];
+    this.setState(() => ({ addOn: updatedAddOns }));
   }
 
   render() {
@@ -70,13 +88,15 @@ class App extends React.Component {
           </div>
           <div className='main-section'>
             <Main
+              isMonthly={this.state.isMonthly}
+              planState={this.state.plan}
+              addOnState={this.state.addOn}
+              stateCount={this.state.count}
               addCount={this.addCount}
               subtractCount={this.subtractCount}
-              stateCount={this.state.count}
               togglePlan={this.togglePlan}
-              selectedAddOns={this.state.addOn}
-              selectedPlan={this.state.plan}
-              isMonthly={this.state.isMonthly}
+              selectAddOns={this.addOnSelect}
+              selectPlan={this.planSelect}
             />
           </div>
         </div>

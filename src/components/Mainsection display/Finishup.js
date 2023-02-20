@@ -4,18 +4,11 @@ class FinishUp extends React.Component {
   constructor(props) {
     super(props);
   }
+  // planState={this.props.planState}
+  //           addOnState={this.props.addOnState}
 
   render() {
-    const plans = this.props.selectedPlan.map((plan) => {
-      return (
-        <>
-          <h1> {plan.title}</h1>
-          <p> {plan.monthPrice}</p>
-        </>
-      );
-    });
-
-    return { plans };
+    return <div> it is well</div>;
   }
 }
 
