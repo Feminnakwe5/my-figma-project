@@ -31,8 +31,8 @@ class AddOnCards extends React.Component {
   render() {
     return addCardsData.map((addCard) => {
       return (
-        <div id='addCard'>
-          <label for={addCard.title}></label>
+        <div id='addCard' key={addCard.id}>
+          <label htmlFor={addCard.title}></label>
           <input
             id={addCard.title}
             type='checkbox'

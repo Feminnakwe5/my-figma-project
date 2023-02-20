@@ -26,7 +26,7 @@ class Nav extends React.Component {
   render() {
     return this.options.map((option) => {
       return (
-        <div>
+        <div key={option.id}>
           <button onClick={() => this.props.setCount(option.id)}>
             {option.id}
           </button>

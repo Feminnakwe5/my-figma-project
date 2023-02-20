@@ -42,14 +42,12 @@ class App extends React.Component {
       this.setState((prevState) => ({
         count: prevState.count - 1,
       }));
-    console.log(this.state.count);
   }
 
   togglePlan() {
     this.setState((prevState) => ({
       isMonthly: !prevState.isMonthly,
     }));
-    console.log(this.state.count);
   }
 
   setCount(id) {

@@ -34,7 +34,11 @@ class PlanCards extends React.Component {
   render() {
     return plansData.map((plan) => {
       return (
-        <div className='card' onClick={() => this.props.selectPlan(plan.id)}>
+        <div
+          key={plan.id}
+          className='card'
+          onClick={() => this.props.selectPlan(plan.id)}
+        >
           <img src={plan.image} alt={plan.alt} />
           <h3>{plan.title}</h3>
           <p>
