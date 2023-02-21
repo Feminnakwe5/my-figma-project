@@ -7,7 +7,7 @@ import FinishUp from './MainSection display/FinishUp';
 class MainDisplay extends React.Component {
   render() {
     return (
-      <div>
+      <>
         {this.props.currentCount === 1 ? (
           <Form />
         ) : this.props.currentCount === 2 ? (
@@ -31,7 +31,7 @@ class MainDisplay extends React.Component {
         ) : (
           <Form />
         )}
-      </div>
+      </>
     );
   }
 }

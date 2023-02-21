@@ -1,9 +1,12 @@
 import React from 'react';
+import arcade from '../../images/icon-arcade.svg';
+import advanced from '../../images/icon-advanced.svg';
+import pro from '../../images/icon-pro.svg';
 
 const plansData = [
   {
     id: 1,
-    image: '',
+    image: arcade,
     alt: 'arcade logo',
     title: 'Arcade',
     monthPrice: 9,
@@ -12,7 +15,7 @@ const plansData = [
   },
   {
     id: 2,
-    image: '../images/advanced.png',
+    image: advanced,
     alt: 'advanced logo',
     title: 'Advanced',
     monthPrice: 12,
@@ -21,7 +24,7 @@ const plansData = [
   },
   {
     id: 3,
-    image: '../images/pro.png',
+    image: pro,
     alt: 'pro logo',
     title: 'pro',
     monthPrice: 15,

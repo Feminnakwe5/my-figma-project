@@ -26,12 +26,19 @@ class Nav extends React.Component {
   render() {
     return this.options.map((option) => {
       return (
-        <div key={option.id}>
-          <button onClick={() => this.props.setCount(option.id)}>
+        <div key={option.id} className='nav-item'>
+          <button
+            onClick={() => this.props.setCount(option.id)}
+            className='nav-btn'
+          >
             {option.id}
           </button>
-          <p> step{option.id}</p>
-          <h5> {option.text} </h5>
+          <div className='nav-text'>
+            <p> STEP {option.id}</p>
+            <p>
+              <b>{option.text}</b>
+            </p>
+          </div>
         </div>
       );
     });

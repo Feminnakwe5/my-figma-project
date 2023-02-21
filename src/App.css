@@ -3,18 +3,45 @@ body {
 }
 .main {
   display: grid;
-  grid-template-areas:
-    'nav main main'
-    'nav main main'
-    'nav main main';
-  width: 100%;
-  height: 300px;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-.main-section {
-  grid-area: 'main';
+  margin: 1em 1.5em;
+  grid-template-columns: 1fr 3fr;
+  height: 568px;
+  gap: 20px;
 }
 .Nav {
-  grid-area: 'nav';
+  background-image: url(./images/bg-sidebar-desktop.svg);
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding-left: 10px;
+}
+.nav-btn {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+}
+.nav-text {
+  padding-left: 10px;
+  line-height: 5px;
+  color: white;
+}
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  justify-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.form-input {
+  display: block;
 }

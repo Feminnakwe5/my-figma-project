@@ -34,6 +34,7 @@ class FormInputs extends React.Component {
             type={input.type}
             placeholder={input.placeholder}
             id={input.name}
+            className='form-input'
           />
         </div>
       );
