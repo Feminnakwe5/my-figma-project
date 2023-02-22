@@ -77,10 +77,6 @@ class App extends React.Component {
     }));
   }
 
-  // clearStateAddOn(value) {
-  //   this.setState(() => ({ addOn: value }));
-  // }
-
   clearState(value) {
     value === 'isMonthly'
       ? this.setState(() => ({ isMonthly: true }))
@@ -115,6 +111,7 @@ class App extends React.Component {
               selectAddOns={this.addOnSelect}
               selectPlan={this.planSelect}
               clearState={this.clearState}
+              setCount={this.setCount}
             />
           </div>
         </div>

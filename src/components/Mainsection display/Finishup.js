@@ -7,20 +7,44 @@ class FinishUp extends React.Component {
     const allSelected = [...this.props.planState, ...this.props.addOnState].map(
       (selected) => {
         return (
-          <div key={selected.id} className='finish-up-options'>
-            <h1>
-              {selected.yearDiscount && monthly
-                ? selected.title + '(Monthly)'
-                : selected.yearDiscount
-                ? selected.title + '(Yearly)'
-                : selected.title}
-            </h1>
-            <p>
-              +$
-              {monthly
-                ? selected.monthPrice + '/mon'
-                : selected.yearPrice + '/yr'}
-            </p>
+          <div key={selected.id}>
+            {selected.yearDiscount && monthly ? (
+              <div className='finish-up-options' id='finish-up-plan'>
+                <div className='finish-up-plan'>
+                  <p> {selected.title} (Monthly)</p>
+                  <span onClick={() => this.props.setCount(2)}>Change</span>
+                </div>
+                <p>
+                  +$
+                  {monthly
+                    ? selected.monthPrice + '/mo'
+                    : selected.yearPrice + '/yr'}
+                </p>
+              </div>
+            ) : selected.yearDiscount ? (
+              <div className='finish-up-options' id='finish-up-plan'>
+                <div className='finish-up-plan'>
+                  <p> {selected.title} (Yearly) </p>
+                  <span onClick={() => this.props.setCount(2)}>Change</span>
+                </div>
+                <p>
+                  +$
+                  {monthly
+                    ? selected.monthPrice + '/mo'
+                    : selected.yearPrice + '/yr'}
+                </p>
+              </div>
+            ) : (
+              <div className='finish-up-options'>
+                <h5> {selected.title} </h5>
+                <p>
+                  +$
+                  {monthly
+                    ? selected.monthPrice + '/mo'
+                    : selected.yearPrice + '/yr'}
+                </p>
+              </div>
+            )}
           </div>
         );
       }
@@ -37,9 +61,10 @@ class FinishUp extends React.Component {
         <p>Double-check everything looks OK before confirming.</p>
         <div className='options'>{allSelected}</div>
         <div className='total'>
-          total (per {monthly ? 'month' : 'year'})
+          Total (per {monthly ? 'month' : 'year'})
           <p>
-            $ {total} {monthly ? '/mon' : '/Yr'}
+            ${total}
+            {monthly ? '/mo' : '/Yr'}
           </p>
         </div>
       </div>

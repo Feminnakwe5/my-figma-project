@@ -18,6 +18,7 @@ class Main extends React.Component {
             clearState={this.props.clearState}
             clickedPlan={this.props.clickedPlan}
             addOnSelected={this.props.addOnSelected}
+            setCount={this.props.setCount}
           />
         </div>
         <div className='main-content-btn'>
@@ -27,7 +28,7 @@ class Main extends React.Component {
             </button>
           )}
           <button onClick={this.props.addCount} className='next-step-btn'>
-            Next Step
+            {this.props.stateCount === 4 ? 'Confirm' : 'Next Step'}
           </button>
         </div>
       </div>

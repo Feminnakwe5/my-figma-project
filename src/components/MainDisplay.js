@@ -31,6 +31,7 @@ class MainDisplay extends React.Component {
             addOnState={this.props.addOnState}
             isMonthly={this.props.isMonthly}
             clearState={this.props.clearState}
+            setCount={this.props.setCount}
           />
         ) : (
           <Form />
