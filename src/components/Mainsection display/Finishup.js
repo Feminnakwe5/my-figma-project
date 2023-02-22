@@ -7,7 +7,7 @@ class FinishUp extends React.Component {
     const allSelected = [...this.props.planState, ...this.props.addOnState].map(
       (selected) => {
         return (
-          <div key={selected.id}>
+          <div key={selected.id} className='finish-up-options'>
             <h1>
               {selected.yearDiscount && monthly
                 ? selected.title + '(Monthly)'
@@ -35,8 +35,8 @@ class FinishUp extends React.Component {
       <div>
         <h1>Finishing Up</h1>
         <p>Double-check everything looks OK before confirming.</p>
-        {allSelected}
-        <div>
+        <div className='options'>{allSelected}</div>
+        <div className='total'>
           total (per {monthly ? 'month' : 'year'})
           <p>
             $ {total} {monthly ? '/mon' : '/Yr'}

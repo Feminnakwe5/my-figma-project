@@ -29,15 +29,15 @@ class Nav extends React.Component {
         <div key={option.id} className='nav-item'>
           <button
             onClick={() => this.props.setCount(option.id)}
-            className='nav-btn'
+            className={
+              this.props.stateCount === option.id ? 'button-change' : 'nav-btn'
+            }
           >
-            {option.id}
+            <b>{option.id}</b>
           </button>
           <div className='nav-text'>
-            <p> STEP {option.id}</p>
-            <p>
-              <b>{option.text}</b>
-            </p>
+            <p className='step'> STEP {option.id}</p>
+            <p className='text'>{option.text}</p>
           </div>
         </div>
       );

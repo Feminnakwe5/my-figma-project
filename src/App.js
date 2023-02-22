@@ -13,6 +13,8 @@ class App extends React.Component {
       isMonthly: true,
       addOn: [],
       plan: [],
+      planClick: {},
+      selectedAddOn: [],
     };
     this.addCount = this.addCount.bind(this);
     this.subtractCount = this.subtractCount.bind(this);
@@ -63,16 +65,20 @@ class App extends React.Component {
 
   planSelect(id) {
     const selectedPlan = plansData.find((plan) => plan.id === id);
-    this.setState(() => ({ plan: [selectedPlan] }));
+    this.setState(() => ({
+      plan: [selectedPlan],
+      planClick: selectedPlan,
+    }));
   }
 
   addOnSelect(id) {
     const updatedAddOns = this.state.addOn.find((addOns) => addOns.id === id)
-      ? this.state.addOn.filter((addOns) => {
-          return addOns.id !== id;
-        })
+      ? this.state.addOn.filter((addOns) => addOns.id !== id)
       : [...this.state.addOn, addCardsData.find((addOns) => addOns.id === id)];
-    this.setState(() => ({ addOn: updatedAddOns }));
+    this.setState(() => ({
+      addOn: updatedAddOns,
+      selectedAddOn: updatedAddOns,
+    }));
   }
 
   render() {
@@ -95,6 +101,8 @@ class App extends React.Component {
               selectAddOns={this.addOnSelect}
               selectPlan={this.planSelect}
               clearState={this.clearState}
+              clickedPlan={this.state.planClick}
+              addOnSelected={this.state.selectedAddOn}
             />
           </div>
         </div>

@@ -15,12 +15,14 @@ class MainDisplay extends React.Component {
             togglePlan={this.props.togglePlan}
             isMonthly={this.props.isMonthly}
             selectPlan={this.props.selectPlan}
+            clickedPlan={this.props.clickedPlan}
           />
         ) : this.props.currentCount === 3 ? (
           <AddOn
             isMonthly={this.props.isMonthly}
             selectAddOns={this.props.selectAddOns}
             clearState={this.props.clearState}
+            addOnSelected={this.props.addOnSelected}
           />
         ) : this.props.currentCount === 4 ? (
           <FinishUp

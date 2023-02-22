@@ -1,9 +1,10 @@
 import React from 'react';
 import MainDisplay from './MainDisplay';
+import ThankYou from './ThankYou';
 
 class Main extends React.Component {
   render() {
-    return (
+    return this.props.stateCount <= 4 ? (
       <div className='content'>
         <div className='main-content'>
           <MainDisplay
@@ -15,15 +16,23 @@ class Main extends React.Component {
             planState={this.props.planState}
             addOnState={this.props.addOnState}
             clearState={this.props.clearState}
+            clickedPlan={this.props.clickedPlan}
+            addOnSelected={this.props.addOnSelected}
           />
         </div>
         <div className='main-content-btn'>
           {this.props.stateCount > 1 && (
-            <button onClick={this.props.subtractCount}> Go back </button>
+            <button onClick={this.props.subtractCount} className='go-back-btn'>
+              Go Back
+            </button>
           )}
-          <button onClick={this.props.addCount}> Next step </button>
+          <button onClick={this.props.addCount} className='next-step-btn'>
+            Next Step
+          </button>
         </div>
       </div>
+    ) : (
+      <ThankYou />
     );
   }
 }

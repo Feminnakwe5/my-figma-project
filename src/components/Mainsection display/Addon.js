@@ -14,6 +14,7 @@ class AddOn extends React.Component {
         <AddOnCards
           isMonthly={this.props.isMonthly}
           selectAddOns={this.props.selectAddOns}
+          addOnSelected={this.props.addOnSelected}
         />
       </div>
     );

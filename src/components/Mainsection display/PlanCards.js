@@ -39,18 +39,26 @@ class PlanCards extends React.Component {
       return (
         <div
           key={plan.id}
-          className='card'
+          className={
+            this.props.clickedPlan.id === plan.id
+              ? 'selected-plan '
+              : 'plan-card'
+          }
           onClick={() => this.props.selectPlan(plan.id)}
         >
           <img src={plan.image} alt={plan.alt} />
-          <h3>{plan.title}</h3>
-          <p>
-            $
-            {this.props.isMonthly
-              ? plan.monthPrice + '/mon'
-              : plan.yearPrice + '/yr'}
-          </p>
-          {!this.props.isMonthly && <p>{plan.yearDiscount}</p>}
+          <div className='plan-card-text'>
+            <h3>{plan.title}</h3>
+            <p className='price'>
+              $
+              {this.props.isMonthly
+                ? plan.monthPrice + '/mon'
+                : plan.yearPrice + '/yr'}
+            </p>
+            {!this.props.isMonthly && (
+              <p className='discount'>{plan.yearDiscount}</p>
+            )}
+          </div>
         </div>
       );
     });

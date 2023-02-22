@@ -29,17 +29,29 @@ const addCardsData = [
 // this.props.selectAddOns(addCard.id);
 class AddOnCards extends React.Component {
   render() {
+    // const style = { ...this.props.addOnSelected.map((addon) => addon.id) };
+
     return addCardsData.map((addCard) => {
       return (
-        <div id='addCard' key={addCard.id}>
-          <label htmlFor={addCard.title}></label>
+        <div
+          className={
+            this.props.addOnSelected.find((addon) => addon.id === addCard.id)
+              ? 'selected-addOn'
+              : 'add-Card'
+          }
+          key={addCard.id}
+        >
           <input
             id={addCard.title}
             type='checkbox'
             onClick={() => this.props.selectAddOns(addCard.id)}
           />
-          <h3> {addCard.title}</h3>
-          <h4> {addCard.subtitle}</h4>
+          <div className='addOn-text'>
+            <label htmlFor={addCard.title}>
+              <h3> {addCard.title}</h3>
+              <p> {addCard.subtitle}</p>
+            </label>
+          </div>
           <p>
             {this.props.isMonthly
               ? '+$' + addCard.monthPrice + '/mo'
