@@ -2,6 +2,10 @@ import React from 'react';
 import { PlanCards } from './PlanCards';
 
 class SelectPlan extends React.Component {
+  componentDidMount() {
+    this.props.clearState('plan');
+    this.props.clearState('isMonthly');
+  }
   render() {
     return (
       <>
@@ -14,6 +18,7 @@ class SelectPlan extends React.Component {
             isMonthly={this.props.isMonthly}
             selectPlan={this.props.selectPlan}
             clickedPlan={this.props.clickedPlan}
+            clearState={this.props.clearState}
           />
         </div>
         <div className='toggle-plan'>

@@ -34,6 +34,9 @@ const plansData = [
 ];
 
 class PlanCards extends React.Component {
+  componentDidMount() {
+    this.props.clearState('planClick');
+  }
   render() {
     return plansData.map((plan) => {
       return (

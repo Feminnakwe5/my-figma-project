@@ -32,7 +32,7 @@ class FinishUp extends React.Component {
     );
 
     return (
-      <div>
+      <div className='finish-up-form'>
         <h1>Finishing Up</h1>
         <p>Double-check everything looks OK before confirming.</p>
         <div className='options'>{allSelected}</div>

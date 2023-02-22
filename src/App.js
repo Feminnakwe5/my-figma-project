@@ -59,10 +59,6 @@ class App extends React.Component {
     }));
   }
 
-  clearState(value) {
-    this.setState(() => ({ addOn: value }));
-  }
-
   planSelect(id) {
     const selectedPlan = plansData.find((plan) => plan.id === id);
     this.setState(() => ({
@@ -81,6 +77,22 @@ class App extends React.Component {
     }));
   }
 
+  // clearStateAddOn(value) {
+  //   this.setState(() => ({ addOn: value }));
+  // }
+
+  clearState(value) {
+    value === 'isMonthly'
+      ? this.setState(() => ({ isMonthly: true }))
+      : value === 'addOn'
+      ? this.setState(() => ({ addOn: [] }))
+      : value === 'plan'
+      ? this.setState(() => ({ plan: [] }))
+      : value === 'planClick'
+      ? this.setState(() => ({ planClick: {} }))
+      : this.setState(() => ({ selectedAddOn: [] }));
+  }
+
   render() {
     return (
       <>
@@ -95,14 +107,14 @@ class App extends React.Component {
               planState={this.state.plan}
               addOnState={this.state.addOn}
               stateCount={this.state.count}
+              clickedPlan={this.state.planClick}
+              addOnSelected={this.state.selectedAddOn}
               addCount={this.addCount}
               subtractCount={this.subtractCount}
               togglePlan={this.togglePlan}
               selectAddOns={this.addOnSelect}
               selectPlan={this.planSelect}
               clearState={this.clearState}
-              clickedPlan={this.state.planClick}
-              addOnSelected={this.state.selectedAddOn}
             />
           </div>
         </div>

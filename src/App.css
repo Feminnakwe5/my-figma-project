@@ -219,6 +219,12 @@ body {
 }
 
 /* add-ons */
+.addOn-display > h1 {
+  color: #022959;
+}
+.addOn-display > p {
+  color: #9699aa;
+}
 .add-Card {
   display: grid;
   grid-template-columns: 0.5fr 2fr 0.5fr;
@@ -227,6 +233,7 @@ body {
   border: 1px solid #d6d9e6;
   margin-top: 15px;
   border-radius: 10px;
+  width: 500px;
 }
 .selected-addOn {
   display: grid;
@@ -237,12 +244,35 @@ body {
   margin-top: 15px;
   border-radius: 10px;
   background-color: #f8f9ff;
+  width: 500px;
+}
+.addOn-input > input {
+  width: 20px;
+  height: 20px;
+}
+.addOn-input > input:checked {
+  background-color: #483eff;
 }
 .addOn-text {
   width: 100%;
 }
+label > h3 {
+  color: #022959;
+}
+label > p {
+  color: #9699aa;
+}
+.addOn-price {
+  color: #483eff;
+}
 
 /* finish-up */
+.finish-up-form > h1 {
+  color: #022959;
+}
+.finish-up-form > p {
+  color: #9699aa;
+}
 .finish-up-options {
   display: grid;
   grid-template-columns: 2fr 0.5fr;

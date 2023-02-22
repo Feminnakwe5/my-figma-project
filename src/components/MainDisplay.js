@@ -16,6 +16,7 @@ class MainDisplay extends React.Component {
             isMonthly={this.props.isMonthly}
             selectPlan={this.props.selectPlan}
             clickedPlan={this.props.clickedPlan}
+            clearState={this.props.clearState}
           />
         ) : this.props.currentCount === 3 ? (
           <AddOn
@@ -29,6 +30,7 @@ class MainDisplay extends React.Component {
             planState={this.props.planState}
             addOnState={this.props.addOnState}
             isMonthly={this.props.isMonthly}
+            clearState={this.props.clearState}
           />
         ) : (
           <Form />
