@@ -34,7 +34,7 @@ export const addCardsData = [
 // PLANDATA INFO
 export const plansData = [
   {
-    id: 1,
+    id: 4,
     image: arcade,
     alt: 'arcade logo',
     title: 'Arcade',
@@ -43,7 +43,7 @@ export const plansData = [
     yearDiscount: '2 months free',
   },
   {
-    id: 2,
+    id: 5,
     image: advanced,
     alt: 'advanced logo',
     title: 'Advanced',
@@ -52,7 +52,7 @@ export const plansData = [
     yearDiscount: '2 months free',
   },
   {
-    id: 3,
+    id: 6,
     image: pro,
     alt: 'pro logo',
     title: 'Pro',

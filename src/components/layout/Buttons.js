@@ -1,24 +1,50 @@
 import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function Buttons() {
+  const location = useLocation();
+
   return (
     <div className='main-content-btn'>
-      <button
-        onClick={this.props.subtractCount}
-        className={this.props.stateCount === 1 ? 'hidden' : 'go-back-btn'}
+      <Link
+        to={
+          location.pathname.includes('plans')
+            ? '/'
+            : location.pathname.includes('addons')
+            ? 'plans'
+            : location.pathname.includes('finish')
+            ? 'addons'
+            : ''
+        }
       >
-        Go Back
-      </button>
+        <button
+          className={location.pathname === '/' ? 'hidden' : 'go-back-btn'}
+        >
+          Go Back
+        </button>
+      </Link>
 
-      <button
-        onClick={this.props.addCount}
-        className='next-step-btn'
-        type='submit'
-        // form='form1'
-        disabled={this.props.formSubmit}
+      <Link
+        to={
+          location.pathname === '/'
+            ? 'plans'
+            : location.pathname.includes('plans')
+            ? 'addons'
+            : location.pathname.includes('addons')
+            ? 'finish'
+            : 'ThankYou'
+        }
       >
-        {this.props.stateCount === 4 ? 'Confirm' : 'Next Step'}
-      </button>
+        <button
+          // onClick={this.props.addCount}
+          className='next-step-btn'
+          // type='submit'
+          // form='form1'
+          // disabled={this.props.formSubmit}
+        >
+          {location.pathname.includes('finish') ? 'Confirm' : 'Next Step'}
+        </button>
+      </Link>
     </div>
   );
 }

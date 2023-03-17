@@ -1,7 +1,10 @@
 import React from 'react';
+import { useOutletContext } from 'react-router-dom';
 import { addCardsData } from '../data';
 
 export default function AddOns() {
+  const { addOn, addOnSelect, isMonthly } = useOutletContext();
+
   const AddOnCards = addCardsData.map((addCard) => {
     return (
       <div
@@ -26,7 +29,7 @@ export default function AddOns() {
           </label>
         </div>
         <p className='addOn-price'>
-          {this.props.isMonthly
+          {isMonthly
             ? '+$' + addCard.monthPrice + '/mo'
             : '+$' + addCard.yearPrice + '/yr'}
         </p>

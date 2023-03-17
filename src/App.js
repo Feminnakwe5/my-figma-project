@@ -16,8 +16,8 @@ import InfoLayout from './components/layout/InfoLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<MainLayout />}>
-      <Route path='info' element={<InfoLayout />}>
+    <Route element={<MainLayout />}>
+      <Route path='/' element={<InfoLayout />}>
         <Route index element={<Info />} />
         <Route path='addons' element={<AddOns />} />
         <Route path='plans' element={<Plans />} />

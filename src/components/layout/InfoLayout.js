@@ -1,6 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Buttons from './Buttons';
+import { addCardsData } from '../../data';
+import { plansData } from '../../data';
 
 export default function InfoLayout() {
   const [addOn, setAddOns] = React.useState([]);
@@ -11,6 +13,7 @@ export default function InfoLayout() {
       : [...addOn, addCardsData.find((addOns) => addOns.id === id)];
     setAddOns(updatedAddOns);
   }
+
   const [card, setCard] = React.useState([]);
 
   function planSelect(id) {
@@ -26,7 +29,7 @@ export default function InfoLayout() {
   const [isMonthly, setIsMonthly] = React.useState(true);
 
   function togglePlan() {
-    setIsMonthly(false);
+    setIsMonthly((prevState) => !prevState);
   }
 
   return (
