@@ -10,8 +10,12 @@ function FinishUp() {
     return (
       <div key={selected.id}>
         {selected.yearDiscount && monthly ? (
-          <div className='finish-up-options' id='finish-up-plan'>
-            <div className='finish-up-plan'>
+          <div
+            className='finish-up-options'
+            id='finish-up-plan'
+            key={selected.id}
+          >
+            <div className='finish-up-plan' key={selected.id}>
               <p> {selected.title} (Monthly)</p>
               <Link to='../plans'>Change</Link>
             </div>
@@ -23,10 +27,14 @@ function FinishUp() {
             </p>
           </div>
         ) : selected.yearDiscount ? (
-          <div className='finish-up-options' id='finish-up-plan'>
-            <div className='finish-up-plan'>
+          <div
+            className='finish-up-options'
+            id='finish-up-plan'
+            key={selected.id}
+          >
+            <div className='finish-up-plan' key={selected.id}>
               <p> {selected.title} (Yearly) </p>
-              <Link to='plans'>Change</Link>
+              <Link to='../plans'>Change</Link>
             </div>
             <p>
               +$
@@ -36,7 +44,7 @@ function FinishUp() {
             </p>
           </div>
         ) : (
-          <div className='finish-up-options'>
+          <div className='finish-up-options' key={selected.id}>
             <h5> {selected.title} </h5>
             <p>
               +$
@@ -55,10 +63,8 @@ function FinishUp() {
     0
   );
 
-  return (
-    <div className='finish-up-form'>
-      <h1>Finishing Up</h1>
-      <p>Double-check everything looks OK before confirming.</p>
+  const text = card ? (
+    <>
       <div className='options'>{allSelected}</div>
       <div className='total'>
         Total (per {monthly ? 'month' : 'year'})
@@ -67,6 +73,15 @@ function FinishUp() {
           {monthly ? '/mo' : '/Yr'}
         </p>
       </div>
+    </>
+  ) : (
+    <h1 id='no-plans-text'> Please Select a Plan</h1>
+  );
+  return (
+    <div className='finish-up-form'>
+      <h1>Finishing Up</h1>
+      <p>Double-check everything looks OK before confirming.</p>
+      {text}
     </div>
   );
 }

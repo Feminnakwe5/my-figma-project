@@ -25,7 +25,7 @@ function Nav() {
     },
   ];
 
-  return options.map((option) => {
+  const navItems = options.map((option) => {
     return (
       <div key={option.id} className='nav-item'>
         <NavLink
@@ -41,6 +41,8 @@ function Nav() {
       </div>
     );
   });
+
+  return <div className='Nav'>{navItems}</div>;
 }
 
 export default Nav;

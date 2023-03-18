@@ -4,9 +4,9 @@ import Nav from './Nav';
 
 export default function MainLayout() {
   return (
-    <>
+    <div className='Main'>
       <Nav />
       <Outlet />
-    </>
+    </div>
   );
 }

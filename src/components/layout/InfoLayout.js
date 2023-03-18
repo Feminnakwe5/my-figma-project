@@ -6,45 +6,55 @@ import { plansData } from '../../data';
 
 export default function InfoLayout() {
   const [addOn, setAddOns] = React.useState([]);
-
+  const [card, setCard] = React.useState('');
+  const [isMonthly, setIsMonthly] = React.useState(true);
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
+  function handleSubmit(e) {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  }
   function addOnSelect(id) {
-    const updatedAddOns = addOn.find((addOns) => addOns.id === id)
+    const selectedAddOns = addOn.find((addOns) => addOns.id === id);
+    const updatedAddOns = selectedAddOns
       ? addOn.filter((addOns) => addOns.id !== id)
-      : [...addOn, addCardsData.find((addOns) => addOns.id === id)];
+      : [
+          ...addOn,
+          { ...addCardsData.find((addOns) => addOns.id === id), checked: true },
+        ];
     setAddOns(updatedAddOns);
   }
-
-  const [card, setCard] = React.useState([]);
 
   function planSelect(id) {
     const selectedPlan = plansData.find((plan) => plan.id === id);
     setCard(selectedPlan);
   }
-  // const [Info, setInfo] = React.useState({
-  //   count: 1,
-  //   planClick: {},
-  //   selectedAddOn: [],
-  // });
-
-  const [isMonthly, setIsMonthly] = React.useState(true);
 
   function togglePlan() {
     setIsMonthly((prevState) => !prevState);
   }
 
   return (
-    <>
-      <Outlet
-        context={{
-          togglePlan,
-          isMonthly,
-          addOn,
-          addOnSelect,
-          card,
-          planSelect,
-        }}
-      />
-      <Buttons />
-    </>
+    <div className='main-section'>
+      <div className='content'>
+        <Outlet
+          context={{
+            togglePlan,
+            isMonthly,
+            addOn,
+            addOnSelect,
+            card,
+            planSelect,
+            handleSubmit,
+            formData,
+          }}
+        />
+      </div>
+      <Buttons selectedPlan={card} selectedAddOns={addOn} form={formData} />
+    </div>
   );
 }

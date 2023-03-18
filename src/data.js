@@ -61,24 +61,3 @@ export const plansData = [
     yearDiscount: '2 months free',
   },
 ];
-// INPUTFORM DATA
-export const inputData = [
-  {
-    id: 1,
-    name: 'Name',
-    type: 'text',
-    placeholder: 'e.g. Stephen King',
-  },
-  {
-    id: 2,
-    name: 'Email Address',
-    type: 'email',
-    placeholder: 'e.g. stephenking@lorem.com',
-  },
-  {
-    id: 3,
-    name: 'Phone Number',
-    type: 'tel',
-    placeholder: 'e.g. +1 234 567 890',
-  },
-];

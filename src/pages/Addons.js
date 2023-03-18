@@ -19,6 +19,12 @@ export default function AddOns() {
           <input
             id={addCard.title}
             type='checkbox'
+            readOnly
+            checked={
+              addOn.find((card) => card.id === addCard.id)
+                ? addOn[0].checked
+                : addCard.checked
+            }
             onClick={() => addOnSelect(addCard.id)}
           />
         </div>
