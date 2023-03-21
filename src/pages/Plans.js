@@ -3,7 +3,11 @@ import { plansData } from '../data';
 import { useOutletContext } from 'react-router-dom';
 
 export default function Plans() {
-  const { card, planSelect, isMonthly, togglePlan } = useOutletContext();
+  const { card, planSelect, isMonthly, togglePlan, setIsMonthly } =
+    useOutletContext();
+  // React.useEffect(() => {
+  //   setIsMonthly(true);
+  // }, []);
   const planCards = plansData.map((plan) => {
     return (
       <div
@@ -35,6 +39,7 @@ export default function Plans() {
         <input
           className='toggle-switch'
           type='checkbox'
+          checked={isMonthly}
           onClick={() => togglePlan()}
         />
         <span className={isMonthly ? '' : 'selected'}>Yearly</span>

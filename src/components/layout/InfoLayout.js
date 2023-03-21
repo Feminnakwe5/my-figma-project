@@ -36,6 +36,7 @@ export default function InfoLayout() {
 
   function togglePlan() {
     setIsMonthly((prevState) => !prevState);
+    // setIsMonthly(false);
   }
 
   return (
@@ -50,6 +51,7 @@ export default function InfoLayout() {
             card,
             planSelect,
             handleSubmit,
+            setIsMonthly,
             formData,
           }}
         />
